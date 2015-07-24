@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 <% require 'json' %>
 <% request_uri = 'api.openweathermap.org/data/2.5/forecast/daily?q=' + @cityweather.city + "&APPID=17d7c464b1b3c40e4c48297d750a9010" %>
+<% # recieving an error for some reason, not sure why as done it this way before, would have just parsed the data in then iterated through the hash and formatted the output to make it look nice, seperating it by days etc %>
 <% data = open(request_uri).read %>
 <% weather = JSON.parsed(data) %>
-  
-
 <%= link_to 'Edit', edit_cityweather_path(@cityweather) %> |
 <%= link_to 'Back', cityweathers_path %>
