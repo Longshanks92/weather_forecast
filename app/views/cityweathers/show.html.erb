@@ -1,13 +1,8 @@
 <p id="notice"><%= notice %></p>
-<% require 'open-uri' %>
 <% require 'json' %>
-<% require 'pp' %>
 <% request_uri = 'api.openweathermap.org/data/2.5/forecast/daily?q=' + @cityweather.city + "&APPID=17d7c464b1b3c40e4c48297d750a9010" %>
-<% url = "#{request_uri}" %>
-<% data = JSON.parse(url) %>
-<% data.each do |key, value| %>
-  <%= key %>
-<% end %>
+<% data = open(request_uri).read %>
+<% weather = JSON.parsed(data) %>
   
 
 <%= link_to 'Edit', edit_cityweather_path(@cityweather) %> |
