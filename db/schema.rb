@@ -11,9 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723120300) do
+ActiveRecord::Schema.define(version: 20150724115948) do
+
+  create_table "cityweathers", force: :cascade do |t|
+    t.string   "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "homes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postcodeweathers", force: :cascade do |t|
+    t.string   "postcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,5 +47,10 @@ ActiveRecord::Schema.define(version: 20150723120300) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "weathers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

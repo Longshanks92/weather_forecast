@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'simple-json', '~> 1.0.2'
 gem 'capybara', :group => :test
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
